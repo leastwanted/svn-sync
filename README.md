@@ -8,6 +8,7 @@ automatically sync between two svn repositories
 - `pysvnadmin.py`: svnadmin usage python export
 - `syncsvn.py`: sync script between two repository
 - `test.py`: test script
+- `patycom.py`: compare two directories if they are identical
 
 ## prepare
 
