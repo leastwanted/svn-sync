@@ -1,6 +1,7 @@
 # SVN Sync
 
 automatically sync between two svn repositories
+[Error logs](errorlog.md)
 
 ## script
 

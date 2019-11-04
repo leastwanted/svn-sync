@@ -85,6 +85,17 @@ class SvnWorkingCopy(object):
         root = ET.fromstring(output)
         return root.find('entry').find('url').text
 
+    def cleanup(self):
+        args = ' '.join([
+            SVN_BIN,
+            'cleanup',
+            self.path,
+            DEFAULT_ARG,
+            self.get_accpwd_arg(),
+        ])
+        succeed, output = check_output(args)
+        return succeed, output
+
     def checkout(self, rev='HEAD'):
         args = ' '.join([
             SVN_BIN,
@@ -112,6 +123,7 @@ class SvnWorkingCopy(object):
         return succeed, output
 
     def reset(self):
+        self.cleanup()
         self.revert()
         _, output = self.status()
         for line in output.splitlines():
